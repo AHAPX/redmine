@@ -1,0 +1,18 @@
+# postgres
+postgres/
+
+# nginx
+nginx/conf.d/*.conf
+nginx/ssl/*
+
+# redmine
+redmine/files/
+redmine/config/configuration.yml
+redmine/config/database.yml
+redmine/config/session.yml
+redmine/plugins/
+redmine/themes/
+redmine/repos/
+
+# backups
+backups/

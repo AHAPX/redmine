@@ -1,0 +1,21 @@
+server {
+    listen 443;
+    server_name redmine;
+
+    ssl on;
+    ssl_certificate /etc/nginx/ssl/name.crt;
+    ssl_certificate_key /etc/nginx/ssl/name.key;
+
+    location / {
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://redmine:3000/;
+    }
+}
+
+server {
+    listen 80;
+    server_name redmine;
+    return 301 https://name:443$request_uri;
+}
